@@ -1,0 +1,2 @@
+# Zero Downtime Deployment
+**Zero Downtime Deployment** is an approach of releasing software that guarantees that a service or application will not go offline at any point throughout the rollout process.
