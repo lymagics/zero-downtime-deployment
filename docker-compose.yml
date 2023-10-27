@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./docker/nginx/Dockerfile
+    ports:
+      - '8080:80'
+    restart: always
+
+  blue:
+    build:
+      context: .
+      dockerfile: ./docker/web/Dockerfile
+    command: uvicorn app:app --host 0.0.0.0 --port 8000
+    expose:
+      - 8000
+    restart: always
+
+  green:
+    build:
+      context: .
+      dockerfile: ./docker/web/Dockerfile
+    command: uvicorn app:app --host 0.0.0.0 --port 8001
+    expose:
+      - 8001
+    restart: always
